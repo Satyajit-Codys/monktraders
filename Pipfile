@@ -4,40 +4,40 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-cachetools==5.0.0
-certifi==2021.10.8
-charset-normalizer==2.0.12
-click==8.0.4
-colorama==0.4.4
-Flask==2.0.3
-Flask-SQLAlchemy==2.5.1
-google-auth==2.6.0
-google-auth-oauthlib==0.5.0
-greenlet==1.1.2
-idna==3.3
-itsdangerous==2.1.0
-Jinja2==3.0.3
-lxml==4.9.0
-MarkupSafe==2.1.0
-multitasking==0.0.11
-numpy==1.23.0
-oauthlib==3.2.0
-pandas==1.4.3
-pyasn1==0.4.8
-pyasn1-modules==0.2.8
-PyMySQL==1.0.2
-python-dateutil==2.8.2
-pytz==2022.1
-requests==2.27.1
-requests-oauthlib==1.3.1
-rsa==4.8
-six==1.16.0
-SQLAlchemy==1.4.39
-stripe==3.5.0
-ta==0.10.1
-urllib3==1.26.8
-Werkzeug==2.0.3
-yfinance==0.1.72
+cachetools= "==5.0.0"
+certifi= "==2021.10.8"
+charset-normalizer= "==2.0.12"
+click= "==8.0.4"
+colorama= "==0.4.4"
+Flask= "==2.0.3"
+Flask-SQLAlchemy= "==2.5.1"
+google-auth= "==2.6.0"
+google-auth-oauthlib= "==0.5.0"
+greenlet= "==1.1.2"
+idna= "==3.3"
+itsdangerous= "==2.1.0"
+Jinja2= "==3.0.3"
+lxml= "==4.9.0"
+MarkupSafe= "==2.1.0"
+multitasking= "==0.0.11"
+numpy= "==1.23.0"
+oauthlib= "==3.2.0"
+pandas= "==1.4.3"
+pyasn1= "==0.4.8"
+pyasn1-modules= "==0.2.8"
+PyMySQL= "==1.0.2"
+python-dateutil= "==2.8.2"
+pytz= "==2022.1"
+requests= "==2.27.1"
+requests-oauthlib= "==1.3.1"
+rsa= "==4.8"
+six= "==1.16.0"
+SQLAlchemy= "==1.4.39"
+stripe= "==3.5.0"
+ta= "==0.10.1"
+urllib3= "==1.26.8"
+Werkzeug= "==2.0.3"
+yfinance= "==0.1.72"
 
 [dev-packages]
 
