@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Monk Traders - Dashboard</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/images/favicon.ico') }}" />
+    <!-- Custom CSS -->
+    <link href="../../static/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../static/dist/css/style.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin5">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="../../static/assets/images/Monk.png" alt="homepage" class="dark-logo"
+                                height="32px" width="32px" />
+                            <!-- Light Logo icon -->
+                            <img src="../../static/assets/images/Monk.png" alt="homepage" class="light-logo"
+                                height="32px" width="32px" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                            <!-- dark Logo text -->
+                            <img src="../../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo text -->
+                            <div class="light-logo"> Monk Traders </div>
+                        </span>
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                </div>
+
+            </nav>
+        </header>
+
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li>
+                            <!-- User Profile-->
+                            <div class="user-profile d-flex no-block dropdown m-t-20">
+                                <div class="user-pic"><img src="../../static/assets/images/users/1.jpg" alt="users"
+                                        class="rounded-circle" width="40" /></div>
+                                <div class="user-content hide-menu m-l-10">
+
+                                    <h5 class="m-b-0 user-name font-medium">{{name}} </h5>
+                                    <span class="op-5 user-email">{{email}}</span>
+
+                                </div>
+                            </div>
+                            <!-- End User Profile-->
+                        </li>
+
+                        <!-- User Profile-->
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/search" aria-expanded="false"><i class="search big icon"></i><span
+                                    class="hide-menu">Explore</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/indices" aria-expanded="false"><i class="delicious big icon"></i><span
+                                    class="hide-menu">Indices</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/profile" aria-expanded="false"><i class="user big icon"></i><span
+                                    class="hide-menu">Profile</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/logout" aria-expanded="false"><i class="mdi mdi-logout"></i><span
+                                    class="hide-menu">Logout</span></a></li>
+
+                    </ul>
+
+                </nav>
+            </div>
+        </aside>
+
+        <div class="page-wrapper">
+
+            <div class="container-fluid">
+
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex">
+                                    <div>
+                                        <h4 class="card-title">{{sym_name}} Trigger Points</h4>
+                                        <h5 class="card-subtitle">Overview</h5>
+                                    </div>
+
+                                    <div class="ms-auto">
+                                        <div class="dl">
+                                            <select id="frequency" class="form-select shadow-none">
+                                                <option value="0" selected>1 Day</option>
+                                                <option value="1">5 Mins</option>
+                                                <option value="2">15 Mins</option>
+                                                <option value="3">1 Hour</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- title -->
+                            </div>
+                            <!-- {{bb_d, bb_5, bb_15, bb_1h}} -->
+                            <div style="display: flex; align-items: center;
+                            justify-content: center;">
+                                <div class="alert alert-success">
+                                    <h3 id="closest-buy"><b>Closest Buy :  {{bb_d[2]}}</b> ({{'%0.2f'| format(bb_d[3]|float)}}) </h3>
+                                </div>
+                                <div class="alert alert-danger">
+                                    <h3 id="closest-sell"><b> Closest Sell : {{bb_d[0]}}</b> ({{'%0.2f'| format(bb_d[1]|float)}})</h3>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">MACD</th>
+                                            <th class="border-top-0">EMA 5</th>
+                                            <th class="border-top-0">EMA 10</th>
+                                            <th class="border-top-0">BBTop</th>
+                                            <th class="border-top-0">BBottom</th>
+                                            <th class="border-top-0">Stoch</th>
+                                            <th class="border-top-0">PSAR</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+
+                                            <td>{% if data[0][1]=="Buy Above" %} <h3 id="macd">
+                                                    {{'%0.2f'| format(data[0][2]|float)}}<img
+                                                        src="{{ url_for('static', filename='assets/images/up_arrow.png') }}"
+                                                        alt="Description for image" width="25" height="25">
+                                                    {%else %} <h3 id="macd">{{'%0.2f'|
+                                                        format(data[0][2]|float)}}<img
+                                                            src="{{ url_for('static', filename='assets/images/down_arrow.png') }}"
+                                                            alt="Description for image" width="25" height="25">{% endif
+                                                        %}
+                                                    </h3>
+                                                    </label> </td>
+                                            <td>{% if data[1][1]=="Buy Above" %} <h3 id="ema5">
+                                                    {{'%0.2f'| format(data[1][2]|float)}}<img
+                                                        src="{{ url_for('static', filename='assets/images/up_arrow.png') }}"
+                                                        alt="Description for image" width="25" height="25">
+                                                    {%else %} <h3 id="ema5"> {{'%0.2f'|
+                                                        format(data[1][2]|float)}}<img
+                                                            src="{{ url_for('static', filename='assets/images/down_arrow.png') }}"
+                                                            alt="Description for image" width="25" height="25"> {% endif
+                                                        %}
+                                                    </h3>
+                                                    </label></td>
+                                            <td>{% if data[2][1]=="Buy Above" %} <h3 id="ema10">
+                                                    {{'%0.2f'| format(data[2][2]|float)}}<img
+                                                        src="{{ url_for('static', filename='assets/images/up_arrow.png') }}"
+                                                        alt="Description for image" width="25" height="25">
+                                                    {%else %} <h3 id="ema10">{{'%0.2f'|
+                                                        format(data[2][2]|float)}}<img
+                                                            src="{{ url_for('static', filename='assets/images/down_arrow.png') }}"
+                                                            alt="Description for image" width="25" height="25"> {% endif
+                                                        %}
+                                                    </h3>
+                                                    </label></td>
+                                            <td>{% if data[3][1]=="Buy Above" %} <h3 id="bbtop">
+                                                    {{'%0.2f'| format(data[3][2]|float)}}<img
+                                                        src="{{ url_for('static', filename='assets/images/up_arrow.png') }}"
+                                                        alt="Description for image" width="25" height="25">
+
+                                                    {%else %} <h3 id="bbtop">{{'%0.2f'|
+                                                        format(data[3][2]|float)}}<img
+                                                            src="{{ url_for('static', filename='assets/images/down_arrow.png') }}"
+                                                            alt="Description for image" width="25" height="25"> {% endif
+                                                        %}
+                                                    </h3>
+                                                    </label></td>
+                                            <td>{% if data[4][1]=="Buy Above" %} <h3 id="bbottom" ">{{'%0.2f'| format(data[4][2]|float)}}<img
+                                                        src=" {{ url_for('static',
+                                                    filename='assets/images/up_arrow.png' ) }}"
+                                                    alt="Description for image" width="250" height="250">
+
+                                                    {%else %} <h3 id="bbottom">{{'%0.2f'|
+                                                        format(data[4][2]|float)}}<img
+                                                            src="{{ url_for('static', filename='assets/images/down_arrow.png') }}"
+                                                            alt="Description for image" width="25" height="25"> {% endif
+                                                        %}
+                                                    </h3>
+                                                    </label></td>
+                                            <td>{% if data[5][1]=="Buy Above" %} <h3 id="stoch">
+                                                    {{'%0.2f'| format(data[5][2]|float)}}<img
+                                                        src="{{ url_for('static', filename='assets/images/up_arrow.png') }}"
+                                                        alt="Description for image" width="25" height="25">
+
+                                                    {%else %} <h3 id="stoch">{{'%0.2f'|
+                                                        format(data[5][2]|float)}}<img
+                                                            src="{{ url_for('static', filename='assets/images/down_arrow.png') }}"
+                                                            alt="Description for image" width="25" height="25"> {% endif
+                                                        %}
+                                                    </h3>
+                                                    </label></td>
+                                            <td>{% if data[6][1]=="Buy Above" %} <h3 id="psar">
+                                                    {{'%0.2f'| format(data[6][2]|float)}}<img
+                                                        src="{{ url_for('static', filename='assets/images/up_arrow.png') }}"
+                                                        alt="Description for image" width="25" height="25">
+                                                    {%else %}
+                                                    <h3 id="psar">
+                                                        {{'%0.2f'| format(data[6][2]|float)}}<img
+                                                            src="{{ url_for('static', filename='assets/images/down_arrow.png') }}"
+                                                            alt="Description for image" width="25" height="25"> {% endif
+                                                        %} </h3>
+                                                    </label></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Trading View Chart -->
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" style="width:100%; height: 100vh !important;">
+                <div id="technical-analysis-chart-demo"></div>
+                
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.widget(
+                        {
+                            "container_id": "technical-analysis-chart-demo",
+                            "symbol": "{{sym_org}}",
+                            "interval": "D",
+                            "timezone": "exchange",
+                            "theme": "light",
+                            "style": "1",
+                            "toolbar_bg": "#f1f3f6",
+                            "withdateranges": true,
+                            "hide_side_toolbar": false,
+                            "allow_symbol_change": true,
+                            "save_image": false,
+                            "studies": [],
+                            "show_popup_button": true,
+                            "popup_width": "1000",
+                            "popup_height": "650",
+                            "locale": "in"
+                        }
+                    );
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+
+
+            <footer class="footer text-center">
+                All Rights Reserved by MonkTraders.
+            </footer>
+
+        </div>
+
+    </div>
+
+    <script src="../../static/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script>
+        $('#frequency').change(function () {
+            if (this.value == "0") {
+
+                $('#closest-buy').html(`<b>Closest Buy : {{bb_d[2]}}</b> ({{bb_d[3]}})`);
+                $('#closest-sell').html(`<b>Closest Sell : {{bb_d[0]}}</b> ({{bb_d[1]}})`);
+
+                if ("{{data[0][1]}}" == "Buy Above") {
+                    $('#macd').html(`{{' % 0.2f'| format(data[0][2]|float)}}<img src="{{ url_for('static', filename='assets / images / up_arrow.png') }}"
+                                                        alt = "Description for image" width = "25" height = "25" >`);
+                    $('#macd').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#macd').html(`{{'%0.2f'| format(data[0][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+                alt = "Description for image" width = "25" height = "25" > `);
+                    $('#macd').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data[1][1]}}" == "Buy Above") {
+                    $('#ema').html(`{{'%0.2f'| format(data[1][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+            alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#ema').html(`{{'%0.2f'| format(data[1][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }}"
+                                                        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data[2][1]}}" == "Buy Above") {
+                    $('#ema10').html(`{{'%0.2f'| format(data[2][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema10').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#ema10').html(`{{'%0.2f'| format(data[2][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema10').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data[3][1]}}" == "Buy Above") {
+                    $('#bbtop').html(`{{'%0.2f'| format(data[3][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbtop').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#bbtop').html(`{{'%0.2f'| format(data[3][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbtop').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data[4][1]}}" == "Buy Above") {
+                    $('#bbottom').html(`{{'%0.2f'| format(data[4][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbottom').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#bbottom').html(`{{'%0.2f'| format(data[4][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbottom').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data[5][1]}}" == "Buy Above") {
+                    $('#stoch').html(`{{'%0.2f'| format(data[5][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#stoch').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#stoch').html(`{{'%0.2f'| format(data[5][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#stoch').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data[6][1]}}" == "Buy Above") {
+                    $('#psar').html(`{{'%0.2f'| format(data[6][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#psar').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#psar').html(`{{'%0.2f'| format(data[6][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#psar').css({ color: '#f62d51' });
+                }
+            }
+            if (this.value == "1") {
+
+                $('#closest-buy').html(`<b>Closest Buy : {{bb_5[2]}}</b> ({{bb_5[3]}})`);
+                $('#closest-sell').html(`<b>Closest Sell : {{bb_5[0]}}</b> ({{bb_5[1]}})`);
+
+                if ("{{data5[0][1]}}" == "Buy Above") {
+                    $('#macd').html(`{{'%0.2f'| format(data5[0][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+            alt = "Description for image" width = "25" height = "25" > `);
+                    $('#macd').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#macd').html(`{{'%0.2f'| format(data5[0][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#macd').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data5[1][1]}}" == "Buy Above") {
+                    $('#ema5').html(`{{'%0.2f'| format(data5[1][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema5').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#ema5').html(`{{'%0.2f'| format(data5[1][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema5').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data5[2][1]}}" == "Buy Above") {
+                    $('#ema10').html(`{{'%0.2f'| format(data5[2][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema10').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#ema10').html(`{{'%0.2f'| format(data5[2][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema10').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data5[3][1]}}" == "Buy Above") {
+                    $('#bbtop').html(`{{'%0.2f'| format(data5[3][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbtop').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#bbtop').html(`{{'%0.2f'| format(data5[3][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbtop').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data5[4][1]}}" == "Buy Above") {
+                    $('#bbottom').html(`{{'%0.2f'| format(data5[4][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbottom').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#bbottom').html(`{{'%0.2f'| format(data5[4][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbottom').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data5[5][1]}}" == "Buy Above") {
+                    $('#stoch').html(`{{'%0.2f'| format(data5[5][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#stoch').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#stoch').html(`{{'%0.2f'| format(data5[5][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#stoch').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data5[6][1]}}" == "Buy Above") {
+                    $('#psar').html(`{{'%0.2f'| format(data5[6][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#psar').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#psar').html(`{{'%0.2f'| format(data5[6][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#psar').css({ color: '#f62d51' });
+                }
+            }
+
+            if (this.value == "2") {
+
+                $('#closest-buy').html(`<b>Closest Buy : {{bb_15[2]}}</b> ({{bb_15[3]}})`);
+                $('#closest-sell').html(`<b>Closest Sell : {{bb_15[0]}}</b> ({{bb_15[1]}})`);
+
+
+                if ("{{data15[0][1]}}" == "Buy Above") {
+                    $('#macd').html(`{{'%0.2f'| format(data15[0][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+            alt = "Description for image" width = "25" height = "25" > `);
+                    $('#macd').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#macd').html(`{{'%0.2f'| format(data15[0][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#macd').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data15[1][1]}}" == "Buy Above") {
+                    $('#ema5').html(`{{'%0.2f'| format(data15[1][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema5').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#ema5').html(`{{'%0.2f'| format(data15[1][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema5').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data15[2][1]}}" == "Buy Above") {
+                    $('#ema10').html(`{{'%0.2f'| format(data15[2][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema10').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#ema10').html(`{{'%0.2f'| format(data15[2][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema10').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data15[3][1]}}" == "Buy Above") {
+                    $('#bbtop').html(`{{'%0.2f'| format(data15[3][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbtop').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#bbtop').html(`{{'%0.2f'| format(data15[3][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbtop').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data15[4][1]}}" == "Buy Above") {
+                    $('#bbottom').html(`{{'%0.2f'| format(data15[4][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbottom').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#bbottom').html(`{{'%0.2f'| format(data15[4][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbottom').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data15[5][1]}}" == "Buy Above") {
+                    $('#stoch').html(`{{'%0.2f'| format(data15[5][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#stoch').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#stoch').html(`{{'%0.2f'| format(data15[5][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#stoch').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data15[6][1]}}" == "Buy Above") {
+                    $('#psar').html(`{{'%0.2f'| format(data15[6][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#psar').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#psar').html(`{{'%0.2f'| format(data15[6][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#psar').css({ color: '#f62d51' });
+                }
+            }
+
+            if (this.value == "3") {
+
+                $('#closest-buy').html(`<b>Closest Buy : {{bb_1h[2]}}</b> ({{bb_1h[3]}})`);
+                $('#closest-sell').html(`<b>Closest Sell : {{bb_1h[0]}}</b> ({{bb_1h[1]}})`);
+
+
+                if ("{{data1h[0][1]}}" == "Buy Above") {
+                    $('#macd').html(`{{'%0.2f'| format(data1h[0][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+            alt = "Description for image" width = "25" height = "25" > `);
+                    $('#macd').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#macd').html(`{{'%0.2f'| format(data1h[0][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#macd').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data1h[1][1]}}" == "Buy Above") {
+                    $('#ema1h').html(`{{'%0.2f'| format(data1h[1][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema1h').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#ema1h').html(`{{'%0.2f'| format(data1h[1][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema1h').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data1h[2][1]}}" == "Buy Above") {
+                    $('#ema10').html(`{{'%0.2f'| format(data1h[2][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema10').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#ema10').html(`{{'%0.2f'| format(data1h[2][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#ema10').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data1h[3][1]}}" == "Buy Above") {
+                    $('#bbtop').html(`{{'%0.2f'| format(data1h[3][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbtop').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#bbtop').html(`{{'%0.2f'| format(data1h[3][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbtop').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data1h[4][1]}}" == "Buy Above") {
+                    $('#bbottom').html(`{{'%0.2f'| format(data1h[4][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbottom').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#bbottom').html(`{{'%0.2f'| format(data1h[4][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#bbottom').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data1h[5][1]}}" == "Buy Above") {
+                    $('#stoch').html(`{{'%0.2f'| format(data1h[5][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#stoch').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#stoch').html(`{{'%0.2f'| format(data1h[5][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#stoch').css({ color: '#f62d51' });
+                }
+
+
+                if ("{{data1h[6][1]}}" == "Buy Above") {
+                    $('#psar').html(`{{'%0.2f'| format(data1h[6][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/up_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#psar').css({ color: '#36bea6' });
+                }
+                else {
+                    $('#psar').html(`{{'%0.2f'| format(data1h[6][2]|float)}}<img src="{{ url_for('static', filename = 'assets/images/down_arrow.png') }} "
+        alt = "Description for image" width = "25" height = "25" > `);
+                    $('#psar').css({ color: '#f62d51' });
+                }
+            }
+
+        });
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet" />
+
+    <script src="../../static/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/dist/js/app-style-switcher.js"></script>
+    <!--Wave Effects -->
+    <script src="../../static/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../../static/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../../static/dist/js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="../../static/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="../../static/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="../../static/dist/js/pages/dashboards/dashboard1.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="../static/css/homepage.css">
+
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/images/favicon.ico') }}"/>
+<!-- for homepage bg -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="../static/css/homepage-background.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="layout">
+  <div class="layout__backdrop"></div>
+  <div class="layout__frontdrop"></div>
+  <div class="layout__wrapper">
+    <header class="layout__header">
+      <nav>
+        <ul class="nav nav--header nav--header-1">
+          <li class="nav__item nav__item--home">
+            <a class="nav__link" href="#0">Home</a>
+          </li>
+          <li class="nav__item nav__item--about">
+            <a class="nav__link" href="#0">About</a>
+            <ul class="nav nav--header nav--header-2" style="width: auto;">
+              <li class="nav__item" >
+                <p style="font-size: 2rem; color:white;">We are on a mission to provide complex data, from analysis of indicators and various AI based neural network analysis and prediction models to a very simple form for the Individual user to use it easily and most profitably.<br><br>
+                  We Invite all to join us in our mission and together lets make trading for Individual traders a simple, fun and profitable.</p>
+              </li>
+            </ul>
+          </li>
+          <li class="nav__item nav__item--login">
+            <a class="nav__link" href="/login">Login</a>
+          </li>
+          <li class="nav__item nav__item--contact">
+            <a class="nav__link" href="#0">Contact Us</a>
+            <ul class="nav nav--header nav--header-2">
+              <li class="nav__item">
+                <p style="font-size: 2rem; color:white;">We look forward to your inputs and suggestions.<br>Excited to know your thoughts.</p>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="letstalk@monktraders.in">email us to: <br> letstalk@monktraders.in</a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="nav__item nav__item--services">
+            <a class="nav__link" href="#0">Services</a>
+            <ul class="nav nav--header nav--header-2">
+              <li class="nav__item">
+                <a class="nav__link" href="#0">Print Design</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="#0">Web Design</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="#0">Mobile App Development</a>
+              </li>
+            </ul>
+          </li> -->
+          
+        </ul>
+      </nav>
+    </header>
+    <main class="layout__main">
+      <section class='hero'>
+        <div class="hero-block hero-block--header">
+          <h1 class="hero-title" style="width: 80% !important; text-align: center !important;">
+            Monk Traders <em>We bring the Complexity to its most simplest form!</em>
+            
+          </h1>
+          <p class="hero-text" style="margin-right: 11rem !important; width: 60% !important; font-size: 1.5rem !important;">We are a group of passionate Quant Analysts on a mission to provide Individual traders with complex indicators and AI data analysis in an effortless and valuable manner and allow the user to expand the data to more levels.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/animejs@3.0.0/lib/anime.min.js'></script><script  src="../static/js/homepage-script.js"></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://rawgithub.com/soulwire/sketch.js/master/js/sketch.min.js'></script><script  src="../static/js/homepage-bg-script.js"></script>
+  
+
+</body>
+</html>

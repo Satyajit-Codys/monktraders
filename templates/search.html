@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Monk Traders - Dashboard</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/images/favicon.ico') }}"/>
+    <!-- Custom CSS -->
+    <link href="../../static/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../static/dist/css/style.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet" />
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+
+    <style>
+        .select2-container .select2-selection--single {
+            height: 34px !important;
+        }
+
+        .select2-container--default .select2-selection--single {
+            border: 1px solid #ccc !important;
+            border-radius: 0px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin5">
+
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="../../static/assets/images/Monk.png" alt="homepage" class="dark-logo"
+                                height="32px" width="32px" />
+                            <!-- Light Logo icon -->
+                            <img src="../../static/assets/images/Monk.png" alt="homepage" class="light-logo"
+                                height="32px" width="32px" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                            <!-- dark Logo text -->
+                            <img src="../../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo text -->
+                            <div class="light-logo"> Monk Traders </div>
+                        </span>
+                    </a>
+
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                </div>
+
+            </nav>
+        </header>
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <div class="scroll-sidebar">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li>
+                            <div class="user-profile d-flex no-block dropdown m-t-20">
+                                <div class="user-pic"><img src="../../static/assets/images/users/1.jpg" alt="users"
+                                        class="rounded-circle" width="40" /></div>
+                            </div>
+                            <!-- End User Profile-->
+                        </li>
+
+                        <!-- User Profile-->
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/search" aria-expanded="false"><i class="search big icon"></i><span
+                                    class="hide-menu">Explore</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/indices" aria-expanded="false"><i class="delicious big icon"></i><span
+                                    class="hide-menu">Indices</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/profile" aria-expanded="false"><i class="user big icon"></i><span
+                                    class="hide-menu">Profile</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/logout" aria-expanded="false"><i class="mdi mdi-logout"></i><span
+                                    class="hide-menu">Logout</span></a></li>
+
+                        <!-- <li class="text-center p-40 upgrade-btn">
+                            <a href="https://www.wrappixel.com/templates/xtremeadmin/"
+                                class="btn d-block w-100 btn-danger text-white" target="_blank">Upgrade to Pro</a>
+                        </li>  -->
+                    </ul>
+
+                </nav>
+            </div>
+        </aside>
+        <div class="page-wrapper">
+            <form class="col-md-8" method="POST" style="width: 100%; align-items: center; padding-top: 5rem;">
+                <div style="display:flex;">
+                    <label for="Script" class="form_label" style="padding-right: 1rem;"><b>Search Script : </b></label>
+                    <select name="ticker" class="form-control select2">
+                        {% for stock in all_stocks %}
+                        <option value="{{stock[0]}}{% if stock[1] %}.{{stock[1]}}{%endif%}">{{stock[0]}}</option>
+                        {%endfor%}
+                    </select>
+                    <span class="icon-input-btn" style="padding-left: 2rem;">
+
+                        <!-- <input type="submit" class="btn btn-secondary btn-sm" value="Search"> -->
+                        <button type="submit" class="btn btn-primary" value="Search"><i class="fa fa-search"></i>
+                            Search</i></button>
+
+                    </span>
+                </div>
+            </form>
+        </div>
+
+
+
+        <!-- <div class="container" style="padding: 200px;">
+            <div class="row">
+                <form class="col-md-4">
+                    
+                </form>
+            </div>
+        </div> -->
+        <script>
+            $('.select2').select2();
+            $(".select2").select2({
+                minimumInputLength: 3,
+            language: {
+                inputTooShort: function() {
+                    return 'Please Add More Text';
+                }
+            }
+            });
+        </script>
+        <footer style="text-align: center; position:fixed;
+        bottom:0; width: 100%;">
+            All Rights Reserved by MonkTraders.
+        </footer>
+    </div>
+    </div>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet" />
+
+    <script src="../../static/assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../../static/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/dist/js/app-style-switcher.js"></script>
+    <!--Wave Effects -->
+    <script src="../../static/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../../static/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../../static/dist/js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="../../static/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="../../static/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="../../static/dist/js/pages/dashboards/dashboard1.js"></script>
+</body>
+
+</html>

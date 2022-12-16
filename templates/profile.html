@@ -1,0 +1,49 @@
+{% extends 'dashboard-base.html' %}
+
+{% block body %}
+
+<div class="card" style="width:400px; margin-left: auto; margin-right: auto; margin-top: 20px;">
+    <img class="card-img-top" src="/static/assets/images/monk_avatar.png" alt="Card image"
+        style="width:200px; height: 200px; margin-left: auto; margin-right: auto;">
+    <div class="card-body">
+        <h4 class="card-title"><em>Name: </em> {{name}}</h4>
+        <p class="card-title"><em>Email: </em> {{email}}</p>
+    </div>
+</div>
+
+<div style="width:400px; margin-left: auto; margin-right: auto;">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSubscription"
+    aria-expanded="false" aria-controls="collapseSubscription">
+    See Subscription Details
+</button>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseInvoice"
+    aria-expanded="false" aria-controls="collapseInvoice">
+    See Invoice Details
+</button>
+</div>
+
+<div class="collapse" id="collapseSubscription">
+    <div class="card" style="width:400px; margin-left: auto; margin-right: auto; margin-top: 10px;">
+        <div class="card-body">
+            <h4 class="card-title">Subscription Details: </h4>
+            <p class="card-title"><b>Start Date: </b> {{subscription['sub_start']}}</p>
+            <p class="card-title"><b>End Date: </b> {{subscription['sub_end']}}</p>
+            <p class="card-title"><b>Subscription Status: </b> {{subscription['product_status']}}</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="collapse" id="collapseInvoice">
+    <div class="card" style="width:400px; margin-left: auto; margin-right: auto;">
+        <div class="card-body">
+            <h4 class="card-title">Invoice Details: </h4>
+            <p class="card-title"><em>Address: </em> {{customer['address1']}}</p>
+            <p class="card-title"><em>Postal Code: </em> {{customer['postal_code']}}</p>
+            <p class="card-title"><em>City: </em> {{customer['city']}}</p>
+            <p class="card-title"><em>State: </em> {{customer['state']}}</p>
+            <p class="card-title"><em>Country: </em> {{customer['country']}}</p>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Monk Traders - Dashboard</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/images/favicon.ico') }}" />
+    <!-- Custom CSS -->
+    <link href="../../static/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../static/dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet" />
+    <script src="../../static/assets/libs/jquery/dist/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin5">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="../../static/assets/images/Monk.png" alt="homepage" class="dark-logo"
+                                height="32px" width="32px" />
+                            <!-- Light Logo icon -->
+                            <img src="../../static/assets/images/Monk.png" alt="homepage" class="light-logo"
+                                height="32px" width="32px" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                            <!-- dark Logo text -->
+                            <img src="../../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo text -->
+                            <div class="light-logo"> Monk Traders </div>
+                        </span>
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                </div>
+
+            </nav>
+        </header>
+
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li>
+                            <!-- User Profile-->
+                            <div class="user-profile d-flex no-block dropdown m-t-20">
+                                <div class="user-pic"><img src="../../static/assets/images/monk_avatar.png" alt="users"
+                                        class="rounded-circle" width="40" /></div>
+                                <div class="user-content hide-menu m-l-10">
+                                    <a href="#" class="" id="Userdd" role="button" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <h5 class="m-b-0 user-name font-medium">{{name}} </h5>
+                                        <span class="op-5 user-email">{{email}}</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End User Profile-->
+                        </li>
+
+                        <!-- User Profile-->
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/search" aria-expanded="false"><i class="search big icon"></i><span
+                                    class="hide-menu">Explore</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/indices" aria-expanded="false"><i class="delicious big icon"></i><span
+                                    class="hide-menu">Indices</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/profile" aria-expanded="false"><i class="user big icon"></i><span
+                                    class="hide-menu">Profile</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/logout" aria-expanded="false"><i class="mdi mdi-logout"></i><span
+                                    class="hide-menu">Logout</span></a></li>
+
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+
+        <div class="page-wrapper">
+
+            <div class="container-fluid">
+
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex">
+                                    <div>
+                                        <h4 class="card-title"></h4>
+                                        <h5 class="card-subtitle"></h5>
+                                    </div>
+
+                                    <div class="ms-auto">
+                                        <div class="dl">
+                                            <select class="form-select shadow-none" id="select-index">
+                                                <option selected>Select indices</option>
+                                                {% for index in indices %}
+                                                {% if index['Index_Name'] == selected_index %}
+                                                <option value="{{index['Index_Name']}}" selected>{{index['Index_Name']}}
+                                                </option>
+                                                {%else%}
+                                                <option value="{{index['Index_Name']}}">{{index['Index_Name']}}
+                                                </option>
+                                                {%endif%}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- for selecting custom date range -->
+                                    <div style="padding-left: 10px; padding-top: 5px;">
+                                        <input type="date" id="datepicker" name="datepicker" value="{{selected_date}}"
+                                            placeholder="Select Date">
+                                    </div>
+
+                                    <button id="search" type="submit" class="btn btn-primary"
+                                        style="margin-left: 10px;">
+                                        Search
+                                    </button>
+
+                                    {% if company_list %}
+                                    <button type="button" class="btn btn-primary" style="margin-left: 10px;"
+                                        onclick="tableToCSV()">
+                                        Download CSV
+                                    </button>
+                                    {%endif%}
+
+                                </div>
+                                <!-- title -->
+                            </div>
+                            {% if company_list %}
+
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">Stock Name</th>
+                                            <th class="border-top-0">Closest Buy</th>
+                                            <th class="border-top-0">Closest Sell</th>
+                                            <th class="border-top-0">MACD</th>
+                                            <th class="border-top-0">EMA 5</th>
+                                            <th class="border-top-0">EMA 10</th>
+                                            <th class="border-top-0">Stoch</th>
+                                            <th class="border-top-0">PSAR</th>
+                                            <th class="border-top-0">BBTop</th>
+                                            <th class="border-top-0">BBottom</th>
+                                            
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for company in company_list %}
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="m-r-10"><a
+                                                            class="btn btn-circle d-flex btn-info text-white">{{company.Script[:2]}}</a>
+                                                    </div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">{{company.Script}}</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td class="m-b-0 font-16" style="background-color: lightgreen; text-align: center;"><b>{{company.C_B_T}}</b><br> {{company.C_B_TV}}</td>
+                                            <td class="m-b-0 font-16" style="background-color: lightsalmon; text-align: center;"><b>{{company.C_S_T}}</b><br> {{company.C_S_TV}}</td>
+
+                                            <td {% if company.MACD < company.CLOSE %} style="color: green; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%else%} style="color: red; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%endif%} {{company.MACD}} </td>
+
+                                            <td {% if company.EMA5 < company.CLOSE %} style="color: green; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%else%} style="color: red; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%endif%} {{company.EMA5}} </td>
+
+
+                                            <td {% if company.EMA10 < company.CLOSE %} style="color: green; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%else%} style="color: red; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%endif%} {{company.EMA10}} </td>
+
+                                            <td {% if company.Stoch < company.CLOSE %} style="color: green; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%else%} style="color: red; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%endif%} {{company.Stoch}} </td>
+
+
+                                            <td {% if company.PSAR < company.CLOSE %} style="color: green; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%else%} style="color: red; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%endif%} {{company.PSAR}} </td>
+
+                                            
+                                            <td {% if company.BBTop < company.CLOSE %} style="color: green; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%else%} style="color: red; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%endif%} {{company.BBTop}} </td>
+
+
+                                            <td {% if company.BBottom < company.CLOSE %} style="color: green; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%else%} style="color: red; text-align:right;
+                                            font-weight: 900;
+                                            font-size: large;"> {%endif%} {{company.BBottom}} </td>
+
+                                            
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {%else%}
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                                data-target="#exampleModal" style="margin-bottom: 10rem;
+                                margin-top: 10rem;
+                                width: 50%;
+                                margin-left: auto;
+                                margin-right: auto;">
+                                Please Select Index Name and Date to View the Data
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Please Select Index Name and
+                                                Date to View the Data</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="card-body">
+                                                <!-- title -->
+                                                <div class="d-md-flex">
+                                                    <div class="ms-auto">
+                                                        <div class="dl">
+                                                            <select class="form-select shadow-none" id="select-index2">
+                                                                <option selected>Select indices</option>
+                                                                {% for index in indices %}
+                                                                {% if index['Index_Name'] == selected_index %}
+                                                                <option value="{{index['Index_Name']}}" selected>
+                                                                    {{index['Index_Name']}}
+                                                                </option>
+                                                                {%else%}
+                                                                <option value="{{index['Index_Name']}}">
+                                                                    {{index['Index_Name']}}
+                                                                </option>
+                                                                {%endif%}
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- for selecting custom date range -->
+                                                    <div style="padding-left: 10px; padding-top: 5px;">
+                                                        <input type="date" id="datepicker2" name="datepicker"
+                                                            value="{{selected_date}}" placeholder="Select Date">
+                                                    </div>
+
+                                                    <button id="search2" type="submit" class="btn btn-primary"
+                                                        style="margin-left: 10px;">
+                                                        Search
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            {%endif%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer text-center">
+                All Rights Reserved by MonkTraders.
+            </footer>
+
+        </div>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        function tableToCSV() {
+
+            // Variable to store the final csv data
+            var csv_data = [];
+
+            // Get each row data
+            var rows = document.getElementsByTagName('tr');
+            for (var i = 0; i < rows.length; i++) {
+
+                // Get each column data
+                var cols = rows[i].querySelectorAll('td,th');
+
+                // Stores each csv row data
+                var csvrow = [];
+                for (var j = 0; j < cols.length; j++) {
+
+                    // Get the text data of each cell
+                    // of a row and push it to csvrow
+                    csvrow.push(cols[j].innerText);
+                }
+
+                // Combine each column value with comma
+                csv_data.push(csvrow.join(","));
+            }
+
+            // Combine each row data with new line character
+            csv_data = csv_data.join('\n');
+
+            // Call this function to download csv file 
+            downloadCSVFile(csv_data);
+
+        }
+
+        function downloadCSVFile(csv_data) {
+
+            // Create CSV file object and feed
+            // our csv_data into it
+            CSVFile = new Blob([csv_data], {
+                type: "text/csv"
+            });
+
+            // Create to temporary link to initiate
+            // download process
+            var temp_link = document.createElement('a');
+
+            // Download csv file
+            temp_link.download = "indices_monk_traders.csv";
+            var url = window.URL.createObjectURL(CSVFile);
+            temp_link.href = url;
+
+            // This link should not be displayed
+            temp_link.style.display = "none";
+            document.body.appendChild(temp_link);
+
+            // Automatically click the link to
+            // trigger download
+            temp_link.click();
+            document.body.removeChild(temp_link);
+        }
+    </script>
+
+    <!-- auto open modal -->
+    <!-- <script>
+        $(document).ready(function(){
+            $('#exampleModal').modal('show');
+        });
+    </script> -->
+
+    <script type="text/javascript">
+
+        $('#search').on('click', function (e) {
+
+            var index_name = $('#select-index').val();
+            var date = $('#datepicker').val();
+
+            $.ajax({
+                type: 'POST',
+                url: "{{url_for('/indices')}}",
+                data: { 'index_name': index_name, 'date': date },
+                success: function (result) {
+                    window.location.href = "/indices"
+                }
+            });
+
+        });
+
+        $('#search2').on('click', function (e) {
+
+            var index_name = $('#select-index2').val();
+            var date = $('#datepicker2').val();
+
+            $.ajax({
+                type: 'POST',
+                url: "{{url_for('/indices')}}",
+                data: { 'index_name': index_name, 'date': date },
+                success: function (result) {
+                    window.location.href = "/indices"
+                }
+            });
+
+        });
+
+
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet" />
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../../static/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/dist/js/app-style-switcher.js"></script>
+    <!--Wave Effects -->
+    <script src="../../static/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../../static/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../../static/dist/js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="../../static/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="../../static/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="../../static/dist/js/pages/dashboards/dashboard1.js"></script>
+</body>
+
+</html>
